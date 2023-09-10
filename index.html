@@ -1,0 +1,453 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Michael Kemp Portfolio</title>
+    <link rel="icon" type="image/x-icon" href="C:\Users\Michael\Desktop\mikeFavicon.PNG">
+
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap" rel="stylesheet">
+    <style>
+    
+         /* Apply the 'Roboto' font to all text elements */
+         body, h1, h2, h3, h4, h5, h6, p, a, .navbar-brand, .nav-link, .btn {
+            font-family: 'Roboto', sans-serif;
+        }
+
+       
+        body {
+            font-family: 'Roboto', sans-serif;
+            background-color: #f5f5f5;
+            margin: 0;
+            padding: 0;
+        }
+
+        .navbar {
+            background-color: #f9f9f9; /* Light gray background for the navbar */
+            padding: 15px 0; /* Adjust the top and bottom padding to change the navbar height */
+        }
+
+        .navbar-dark .navbar-toggler-icon {
+            background-color: #8bc34a; /* Light lime green background for the hamburger menu icon */
+            border: none; /* Remove the white box around the hamburger menu icon */
+        }
+
+        .navbar-dark .navbar-nav .nav-link {
+            color: #333; /* Dark gray text color for navigation links */
+            font-weight: bold;
+            transition: color 0.3s;
+            padding: 0.5rem 1rem; /* Add padding to the navigation links */
+        }
+
+        .navbar-dark .navbar-toggler-icon:focus {
+            outline: none; /* Remove the outline around the hamburger menu icon when focused */
+        }
+
+        .navbar-dark .navbar-nav .nav-link:hover {
+            color: #8bc34a !important; /* Light green color on hover */
+        }
+
+        .navbar-nav {
+            text-align: center;
+        }
+
+        /* Title top left of Nav bar.. important because Bootstrap overwrites it.*/
+        .navbar-brand {
+            padding-left: 25px;
+            font-size: 17.5pt;
+            color: #333 !important; /* Dark gray text color for the brand */
+            font-weight: bold; /* Make the text bold */
+            text-transform: uppercase; /* Convert text to uppercase */
+            letter-spacing: 2px; /* Add letter spacing */
+        }
+
+        .firstLink{
+            /*Overwrite the Bootstrap:*/
+            color: #8bc34a !important;
+        }
+
+    
+        /*JUMBOTRON CODE*/
+        .jumbotron {
+            color: #333; /* Dark gray text color for jumbotron content */
+            padding: 150px 0;
+            text-align: center;
+        }
+
+        .jumbotron h1 {
+            font-size: 48px;
+            margin-bottom: 20px;
+        }
+
+        .jumbotron p {
+            font-size: 20px;
+            margin-top: 20px;
+        }
+
+        /* Buttons*/
+        .btn-primary,
+        .btn-primary:hover {
+            background-color: #8bc34a; /* Light lime green background for buttons */
+            border-color: #8bc34a; /* Light lime green border color for buttons */
+            font-weight: bold;
+            transition: background-color 0.3s;
+        }
+
+        .btn-primary:hover {
+            background-color: #5d8530; /* Slightly darker green on hover */
+            border-color: #5d8530; /* Slightly darker border on hover */
+        }
+
+        /* Remove the blue background color on click for all buttons */
+        .btn:focus,
+        .btn:active {
+            outline: none; /* Remove the default focus outline */
+            background-color: #8bc34a !important; /* Set your desired background color */
+            /* You can also set other styles as needed, such as text color */
+        }
+
+
+        /*Project cards styling*/
+        .projects-container {
+            padding: 50px 0;
+        }
+
+        .project-card {
+            background-color: #fff;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s;
+        }
+
+        .project-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 6px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        .project-card img {
+            max-height: 200px;
+            object-fit: cover;
+        }
+
+        .project-card h5 {
+            font-size: 24px;
+            margin-top: 15px;
+        }
+
+        .project-card p {
+            font-size: 18px;
+            margin-top: 10px;
+        }
+
+         /* Projects Section Heading */
+        .projects-container h2, .container>h2 , .aboutMe{
+            font-size: 28px; /* Increase the font size */
+            margin-bottom: 30px; /* Add some spacing below the heading */
+            font-weight: bold; /* Make the text bold */
+            color: #333; /* Change the text color */
+            text-transform: uppercase; /* Convert text to uppercase */
+            letter-spacing: 2px; /* Add letter spacing */
+        }
+
+        
+        /* About Me Section*/
+        .aboutMe{
+            text-align: center;
+        }
+
+        /*Footer stuff*/
+        .footer {
+            background-color: #8bc34a; /* Light gray background for the footer */
+            color: #333; /* Dark gray text color for the footer */
+            padding: 40px 0; 
+        }
+
+        .footer a {
+            color: #333; /* Dark gray text color for footer links */
+        }
+
+        /* Add animations */
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+
+        .animated {
+            animation-duration: 0.5s;
+            animation-fill-mode: both;
+            animation-timing-function: ease-in-out;
+        }
+
+        .fade-in {
+            animation-name: fadeIn;
+        }
+
+        /* Position the mobile navigation menu beneath the navbar */
+        /* Bootstrap is desktop 992px and up */
+        @media (max-width: 991px) {
+            .navbar-collapse {
+                position: absolute;
+                top: 100%;
+                left: 0;
+                right: 0;
+                z-index: 1; /* Ensure it's on top of other content */
+                background-color: #f9f9f9; /* Light gray background for the mobile menu */
+            }
+
+            .navbar-nav {
+                width: 100%; /* Make the mobile nav menu full width */
+                text-align: center; /* Center the links */
+                padding-top: 1rem; /* Add some padding at the top */
+            }
+
+            .navbar-nav .nav-item {
+                padding-bottom: 1rem; /* Add some spacing between links */
+            }
+
+            /* Toggler hamburger margin right */
+            .navbar-toggler {
+                margin-right: 10px;
+                background-color: #8bc34a;
+            }
+
+             /*Change skills to central alignment*/
+             .skill{
+                text-align: center;
+            }
+        }
+
+        @media only screen and (max-width: 296px) {
+            /* Changing my name / brand at the top left of the nav bar when
+            screen width is too small. */
+            .navbar-brand {
+                font-size: 10pt;
+            }
+
+            /* Change toggler size */
+            .navbar-toggler {
+                font-size: 10px;
+            }
+        }
+
+        @media only screen and (max-width: 212px) {
+            /* Changing my name / brand at the top left of the nav bar when
+            screen width is too small. */
+            .navbar-brand {
+                font-size: 5pt;
+            }
+
+            /* Change toggler size */
+            .navbar-toggler {
+                font-size: 5px;
+            }
+        }
+
+        /* Styles fall apart beneath 215px device width but that is rare so I won't support it. */
+
+
+        /*Skills section*/
+        .skill>h5{
+            color: #8bc34a;
+        }
+       
+    </style>
+</head>
+<body>
+
+<!-- Navigation Bar -->
+<nav class="navbar navbar-expand-lg navbar-dark">
+    <a class="navbar-brand" href="#home">Michael Kemp</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+            aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ml-auto">
+            <li class="nav-item active">
+                <a class="nav-link firstLink" href="#home">Home</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#projects">Projects</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#about">About</a>
+            </li>
+            
+            <li class="nav-item">
+                <a class="nav-link" href="#skills">Skills</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#contact">Contact</a>
+            </li>
+        </ul>
+    </div>
+</nav>
+
+<!-- Home Section -->
+<section id="home" class="jumbotron animated fade-in">
+    <div class="container">
+        <h1 class="welcomeMessage">Welcome to My Portfolio</h1>
+        <p>I'm a software developer passionate about creating amazing projects.</p>
+        <a class="btn btn-primary btn-lg smoothScrollButton" href="#projects">View Projects</a>
+
+       
+    </div>
+</section>
+
+
+
+<!-- Projects Section -->
+<section id="projects" class="projects-container animated fade-in">
+    <div class="container">
+        <h2 class="text-center">Projects</h2>
+        <div class="row">
+            <!-- Example Project Card (Repeat this structure for each project) -->
+            <!--class="col-md-4" for 3 projects per row with bootstrap class.-->
+            <div class="col-md-6">
+                <div class="card project-card mb-4">
+                    <!-- Embed YouTube Video -->
+                    <div class="embed-responsive embed-responsive-16by9">
+                        <iframe class="embed-responsive-item" width="1271" height="715" src="https://www.youtube.com/embed/vBpQ1SlfVtU" title="Lamborghini Vs Shredder" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+                    </div>
+                    <div class="card-body">
+                        <h5 class="card-title">Project Name</h5>
+                        <p class="card-text">Brief project description.</p>
+                        <a href="github-link" class="btn btn-primary" target="_blank">GitHub</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-6">
+                <div class="card project-card mb-4">
+                    <!-- Embed YouTube Video -->
+                    <div class="embed-responsive embed-responsive-16by9">
+                        <iframe class="embed-responsive-item" src="" allowfullscreen></iframe>
+                    </div>
+                    <div class="card-body">
+                        <h5 class="card-title">Project Name</h5>
+                        <p class="card-text">Brief project description.</p>
+                        <a href="github-link" class="btn btn-primary" target="_blank">GitHub</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+
+<!-- About Me Section -->
+<section id="about" class="py-5">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <h2 class="aboutMe">About Me</h2>
+                <p>
+                    I'm a passionate software developer with a love for creating innovative and impactful projects. My journey in the world of programming began several years ago, and since then, I've honed my skills in web development, mobile app development, and more.
+                </p>
+                <p>
+                    My goal is to leverage technology to solve real-world problems and deliver exceptional user experiences. I'm always eager to learn and adapt to new technologies, and I thrive in collaborative environments where I can work with like-minded individuals to bring ideas to life.
+                </p>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<!-- Key Skills Section -->
+<section id="skills" class="py-5">
+    <div class="container">
+        <h2 class="text-center">Key Skills</h2>
+        <div class="row">
+
+            <div class="col-md-4">
+                <div class="skill">
+                    <!-- Icon or skill representation -->
+                    <i class="fas fa-code"></i>
+                    <h5>Programming</h5>
+                    <p>Proficient in multiple programming languages.</p>
+                </div>
+            </div>
+
+            <div class="col-md-4">
+                <div class="skill">
+                    <i class="fas fa-laptop"></i>
+                    <h5>Web Development</h5>
+                    <p>Experienced in front-end and back-end development.</p>
+                </div>
+            </div>
+
+            <div class="col-md-4">
+                <div class="skill">
+                    <i class="fas fa-database"></i>
+                    <h5>Database Management</h5>
+                    <p>Skilled in database design and management.</p>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+
+<!-- Contact Section -->
+<section id="contact" class="py-5 text-center animated fade-in">
+    <div class="container">
+        <h2>Contact Me</h2>
+        <p>Feel free to get in touch with me for any inquiries or collaborations.</p>
+        <!-- Add a contact form or contact information here -->
+    </div>
+</section>
+
+<!-- Footer -->
+<footer class="footer text-center animated fade-in">
+    <div class="container">
+        &copy; 2023 Your Name | All Rights Reserved
+    </div>
+</footer>
+
+<!-- JavaScript (Bootstrap and jQuery) -->
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.3/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+<!--scroll-behavior: smooth in the CSS had a conflict, so had to 
+implement it the old fashioned way with JQuery UI:-->
+<script>
+$(document).ready(function() {
+    // Add smooth scrolling to all links with a class of .nav-link
+    $(".nav-link, .smoothScrollButton, .navbar-brand").on('click', function(event) {
+        // Prevent default anchor click behavior
+        event.preventDefault();
+
+        // Store the href attribute of the clicked link
+        var targetHref = this.hash;
+        // Get the offset position of the target element
+        var targetOffset = $(targetHref).offset().top;
+
+        // Use jQuery UI's animate() for smooth scroll
+        $('html, body').animate({
+            scrollTop: targetOffset
+        }, 800, function() {
+            // Remove focus from the clicked link
+            $(targetHref).blur();
+            
+            // Set the link color back to its original color
+            // Boot strap was overwriting this!!
+            $(".nav-link").css("color", "#333"); // Replace with your desired link color
+            return true;
+        });
+    });
+});
+</script>
+
+
+</body>
+</html>
