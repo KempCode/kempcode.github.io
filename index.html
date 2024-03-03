@@ -25,7 +25,7 @@
         }
 
         .navbar {
-            background-color: #f9f9f9; /* Light gray background for the navbar */
+            background-color: #191919; /* Light gray background for the navbar */
             padding: 15px 0; /* Adjust the top and bottom padding to change the navbar height */
         }
 
@@ -35,7 +35,7 @@
         }
 
         .navbar-dark .navbar-nav .nav-link {
-            color: #333; /* Dark gray text color for navigation links */
+            color: white; /* Dark gray text color for navigation links */
             font-weight: bold;
             transition: color 0.3s;
             padding: 0.5rem 1rem; /* Add padding to the navigation links */
@@ -57,7 +57,7 @@
         .navbar-brand {
             padding-left: 25px;
             font-size: 17.5pt;
-            color: #333 !important; /* Dark gray text color for the brand */
+            color: white !important; /* Dark gray text color for the brand */
             font-weight: bold; /* Make the text bold */
             text-transform: uppercase; /* Convert text to uppercase */
             letter-spacing: 2px; /* Add letter spacing */
@@ -74,6 +74,7 @@
             color: #333; /* Dark gray text color for jumbotron content */
             padding: 150px 0;
             text-align: center;
+            margin-bottom: 0px;
         }
 
         .jumbotron h1 {
@@ -156,17 +157,49 @@
             text-align: center;
         }
 
+        /*Contact Jumbotron and secton*/
+        #contact {
+            height: 400px; /* Adjust the height as needed */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
         /*Footer stuff*/
+                /* Footer styling */
         .footer {
-            background-color: #8bc34a; /* Light gray background for the footer */
-            color: #333; /* Dark gray text color for the footer */
-            padding: 40px 0; 
+            background-color: #191919; /* Dark background for the footer */
+            color: #ffffff; /* White text color for the footer */
+            padding: 40px 0;
         }
 
         .footer a {
-            color: #333; /* Dark gray text color for footer links */
+            color: #ffffff; /* Light green color for footer links */
+            transition: color 0.3s;
         }
 
+        .footer a:hover {
+            color: #5d8530; /* Slightly darker green on hover */
+        }
+
+        /* Site map, about, and quick links styling */
+        .footer .row {
+            margin-bottom: 20px;
+        }
+
+        .footer h4 {
+            color: #8bc34a; /* Light green color for footer headings */
+        }
+
+        .footer p {
+            margin-bottom: 20px;
+            color: white;
+            margin-top: 0; /* Remove margin top */
+            padding-top: 20px; /* Add padding top */
+        }
+
+
+        
         /* Add animations */
         @keyframes fadeIn {
             from {
@@ -196,7 +229,7 @@
                 left: 0;
                 right: 0;
                 z-index: 1; /* Ensure it's on top of other content */
-                background-color: #f9f9f9; /* Light gray background for the mobile menu */
+                background-color: #191919; /* Light gray background for the mobile menu */
             }
 
             .navbar-nav {
@@ -540,21 +573,50 @@
 </section>
 
 
+
 <!-- Contact Section -->
-<section id="contact" class="py-5 text-center animated fade-in">
+<section id="contact" class="jumbotron py-5 text-center animated fade-in">
     <div class="container">
         <h2>Contact Me</h2>
         <p>Feel free to get in touch with me for any inquiries or collaborations.</p>
         <!-- Add a contact form or contact information here -->
+        <a href="#contactForm" class="btn btn-primary btn-lg">Contact</a>
     </div>
 </section>
 
 <!-- Footer -->
 <footer class="footer text-center animated fade-in">
     <div class="container">
-        &copy; 2024 Michael Kemp | All Rights Reserved
+        <div class="row">
+            <div class="col-md-4">
+                <h4>Site Map</h4>
+                <ul class="list-unstyled">
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#projects">Projects</a></li>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#skills">Skills</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </div>
+            <div class="col-md-4">
+                <h4>About</h4>
+                <p>Your about content here.</p>
+            </div>
+            <div class="col-md-4">
+                <h4>Quick Links</h4>
+                <ul class="list-unstyled">
+                    <li><a href="#">FAQ</a></li>
+                    <li><a href="#">Terms of Service</a></li>
+                    <li><a href="#">Privacy Policy</a></li>
+                </ul>
+            </div>
+        </div>
+        <hr>
+
+        <p>&copy; 2024 Michael Kemp | All Rights Reserved</p>
     </div>
 </footer>
+
 
 <!-- JavaScript (Bootstrap and jQuery) -->
 <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
