@@ -77,7 +77,9 @@
             /*Overwrite the Bootstrap:*/
             color: #8bc34a !important;
         }
-    
+        
+        
+
         /*JUMBOTRON CODE*/
         .jumbotron {
             color: #333; /* Dark gray text color for jumbotron content */
@@ -168,6 +170,7 @@
             letter-spacing: 2px; /* Add letter spacing */
         }
 
+       
         
         /* About Me Section*/
         .aboutMe{
@@ -274,6 +277,21 @@
              .skill{
                 text-align: center;
             }
+
+            /*Get rid of bullet points for mobile.*/
+            #skills ul {
+            list-style: none; /* Remove the default list style */
+            padding-left: 0; /* Remove any left padding */
+            text-align: center; /* Center-align the list items */
+            }
+            
+            /*Fixed ul indendation problem for central alignment on footer.*/
+            .footer ul {
+                list-style: none; /* Remove the default list style */
+                padding-left: 0; /* Remove any left padding */
+                text-align: center; /* Center-align the list items */
+            }
+
         }
 
         @media only screen and (max-width: 296px) {
@@ -393,8 +411,8 @@
                     <div class="card-body">
                         <h5 class="card-title">Shampoo Specific Website</h5>
                         <p class="card-text">This is a website I made in ASP.NET with C#. 
-                            It has the ability to search for and filter different shampoos for different hairtypes.
-                             It is a concept website, made as a project so it has all of the admin controls to have CRUD operations over products.</p>
+                            It has the ability to search for and filter different shampoos for different hairtypes in the database. 
+                            It is the backend of the site and has all of the admin controls for CRUD operations over products.</p>
                         <a href="https://github.com/Kempster33/Shampoo-Specific-Website" class="btn btn-primary" target="_blank">GitHub</a>
                     </div>
                 </div>
@@ -439,7 +457,7 @@
                     </div>
                     <div class="card-body">
                         <h5 class="card-title">Python Machine Learning Police Data</h5>
-                        <p class="card-text">StreamLit application and Notebook from group project. We Used variables to predict crimes. 
+                        <p class="card-text">StreamLit application and Notebook from group project. We used variables to predict crimes. 
                         My Contributions were K means clustering, some Naive Bayes classification and the NB Classification in the StreamLit Application.</p>
                         <a href="https://github.com/Kempster33/Police-Data-Machine-Learning" class="btn btn-primary" target="_blank">GitHub</a>
                         <a href="https://github.com/Kempster33/Police-Data-Machine-Learning/blob/main/PoliceMLPython.pdf" class="btn btn-primary" target="_blank">Python Code</a>
@@ -554,7 +572,7 @@
 <!-- Key Skills Section -->
 <section id="skills" class="py-5">
     <div class="container">
-        <h2 class="text-center">Key Skills</h2>
+        <h2 class="text-center">Skills</h2>
         <div class="row">
 
             <div class="col-md-4">
@@ -618,7 +636,7 @@
                 </div>
             </div>
 
-            <div class="col-md-4">
+            <div class="col-md-4 skill">
                 <div class="skill">
                     <i class="fas fa-lock"></i>
                     <h5>Cybersecurity</h5>
