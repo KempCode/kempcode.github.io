@@ -1,0 +1,62 @@
+<head>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+  </head>
+
+  <!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>3D Interactive Cone</title>
+  <style>
+    body { margin: 0; }
+    canvas { display: block; }
+  </style>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+</head>
+<body>
+
+<script>
+  // Basic setup for the scene
+  const scene = new THREE.Scene();
+  const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
+  const renderer = new THREE.WebGLRenderer();
+  renderer.setSize(window.innerWidth, window.innerHeight);
+  document.body.appendChild(renderer.domElement);
+
+  // Create a cone geometry
+  //https://threejs.org/docs/index.html#api/en/geometries/ConeGeometry
+  const geometry = new THREE.ConeGeometry(5, 10, 30); // radius, height, segments
+  const material = new THREE.MeshBasicMaterial({ color: 0x00ff00, wireframe: true });
+  const cone = new THREE.Mesh(geometry, material);
+  // Add the cone to the scene
+  scene.add(cone);
+
+  // Set camera position
+  camera.position.z = 20;
+
+  // Animation loop to render the scene
+  function animate() {
+    requestAnimationFrame(animate);
+
+    // Rotate the cone for some interactivity
+    cone.rotation.x += 0.01;
+    cone.rotation.y += 0.01;
+
+    // Render the scene from the perspective of the camera
+    renderer.render(scene, camera);
+  }
+
+  // Call the animation loop
+  animate();
+
+  // Resize the renderer on window resize
+  window.addEventListener('resize', () => {
+    renderer.setSize(window.innerWidth, window.innerHeight);
+    camera.aspect = window.innerWidth / window.innerHeight;
+    camera.updateProjectionMatrix();
+  });
+</script>
+
+</body>
+</html>
